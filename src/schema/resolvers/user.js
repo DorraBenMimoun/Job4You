@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+const User = require("../../models/User");
 
-const resolvers = {
+const userResolvers = {
   Query: {
     candidats: async () => {
       return await User.find({ role: "candidat" });
@@ -64,4 +64,4 @@ const resolvers = {
   },
 };
 
-module.exports = resolvers;
+module.exports = userResolvers;

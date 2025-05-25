@@ -5,29 +5,33 @@ const userSchema = new mongoose.Schema(
   {
     nom: {
       type: String,
-      required: true,
+      required: [true, "Le nom est requis"],
+      trim: true,
     },
     prenom: {
       type: String,
-      required: true,
+      required: [true, "Le prénom est requis"],
+      trim: true,
     },
     mail: {
       type: String,
-      required: true,
+      required: [true, "L'email est requis"],
       unique: true,
       lowercase: true,
+      trim: true,
     },
     mdp: {
       type: String,
-      required: true,
+      required: [true, "Le mot de passe est requis"],
     },
     adresse: {
       type: String,
-      required: true,
+      required: [true, "L'adresse est requise"],
+      trim: true,
     },
     dateNaissance: {
       type: Date,
-      required: true,
+      required: [true, "La date de naissance est requise"],
     },
     role: {
       type: String,
