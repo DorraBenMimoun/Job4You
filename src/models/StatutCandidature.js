@@ -22,4 +22,4 @@ const statutCandidatureSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Candidature", candidatureSchema);
+module.exports = mongoose.model("StatutCandidature", statutCandidatureSchema);
