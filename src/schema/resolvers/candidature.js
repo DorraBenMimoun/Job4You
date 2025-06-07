@@ -172,9 +172,23 @@ const candidatureResolvers = {
         throw new AuthenticationError("Accès non autorisé");
       }
 
-      const candidature = await Candidature.findById(input.candidatureId);
+      const candidature = await Candidature.findById(
+        input.candidatureId
+      ).populate("statut");
       if (!candidature) {
         throw new UserInputError("Candidature non trouvée");
+      }
+
+      if (!["En attente", "Acceptée", "Rejetée"].includes(input.statut)) {
+        throw new UserInputError(
+          "Statut invalide. Les statuts valides sont : En attente, Acceptée, Rejetée."
+        );
+      }
+
+      if (input.statut === candidature.statut.statut) {
+        throw new UserInputError(
+          "Veuillez choisir un statut différent de l'actuel."
+        );
       }
 
       // Créer un nouveau statut
