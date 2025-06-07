@@ -9,6 +9,10 @@ const offerTypeDefs = gql`
     salaire: String!
     requirements: [String!]!
     recruteur: User!
+    dateExpiration: String!
+    typeContrat: String!
+    teletravail: Boolean!
+    etat: String!
     createdAt: String!
   }
 
@@ -17,6 +21,10 @@ const offerTypeDefs = gql`
     description: String!
     localisation: String!
     salaire: String!
+    dateExpiration: String!
+    typeContrat: String!
+    teletravail: Boolean!
+    etat: String!
     requirements: [String!]!
   }
 
