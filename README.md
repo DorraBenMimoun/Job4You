@@ -21,24 +21,28 @@ Avant de démarrer, vous devez avoir installé :
 
 ## 🚀 Lancement du projet
 # Installer les dépendances
+```
 npm install
-
+```
 # Démarrer le serveur
+```
 npm start
+```
 Le serveur tourne sur http://localhost:4000/graphql par défaut.
 
 ## 📌 Structure du projet
 ```
 
-job4you-api/
+job4you/
 │
-├── models/               # Modèles Mongoose (User, Offer, Candidature, etc.)
-├── resolvers/            # Fonctions GraphQL (Mutation, Query)
-├── schema.graphql        # Définition du schéma GraphQL
-├── utils/                # Fonctions utilitaires (auth, validation, etc.)
-├── server.js             # Point d’entrée de l’application
-├── .env                  # Variables d’environnement
-└── README.md
+├── models/               # Modèles Mongoose (User, Offer, Candidature, StatutCandidature)
+├── schema.graphql        # Définition complète du schéma GraphQL (types, inputs, queries, mutations)
+├── resolvers/            # Résolveurs GraphQL : logique des queries et mutations
+├── typeDefs/             # Déclarations de types GraphQL (si séparées du schéma principal)
+├── server.js             # Point d’entrée principal de l'application (configuration Apollo Server + MongoDB)
+├── .env                  # Variables d’environnement (URI MongoDB, secret JWT, etc.)
+└── README.md             # Documentation du projet (présentation, installation, exemples d'utilisation)
+
 ```
 
 ---
