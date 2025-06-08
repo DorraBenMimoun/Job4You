@@ -28,6 +28,8 @@ npm start
 Le serveur tourne sur http://localhost:4000/graphql par défaut.
 
 ## 📌 Structure du projet
+```
+
 job4you-api/
 │
 ├── models/               # Modèles Mongoose (User, Offer, Candidature, etc.)
@@ -37,7 +39,9 @@ job4you-api/
 ├── server.js             # Point d’entrée de l’application
 ├── .env                  # Variables d’environnement
 └── README.md
+```
 
+---
 ## 📁 Schéma GraphQL
 Le schéma complet est disponible dans le fichier schema.graphql. Il contient :
 
