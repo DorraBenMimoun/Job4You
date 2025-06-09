@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const userTypeDefs = gql`
   type User {
-    id: ID!
+    _id: ID!
     mail: String!
     nom: String!
     prenom: String!
@@ -21,6 +21,7 @@ const userTypeDefs = gql`
     candidats: [User!]!
     candidatByMail(mail: String!): User
     me: User
+    listUsers: [User!]!
   }
 
   extend type Mutation {
@@ -33,6 +34,7 @@ const userTypeDefs = gql`
       dateNaissance: String!
     ): AuthPayload!
     login(mail: String!, mdp: String!): AuthPayload!
+    changeRole(id: ID!, role: String!): User!
   }
 `;
 

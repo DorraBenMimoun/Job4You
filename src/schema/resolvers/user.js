@@ -13,6 +13,20 @@ const userResolvers = {
       if (!user) throw new Error("Non authentifié");
       return await User.findById(user.id);
     },
+    listUsers: async (_, __, { user }) => {
+      if (!user) {
+        throw new Error(
+          "Vous devez être connecté pour lister les utilisateurs"
+        );
+      }
+      if (user.role !== "admin" && user.role !== "recruteur") {
+        throw new Error(
+          "Seul un administrateur ou un recruteur peut lister les utilisateurs"
+        );
+      }
+
+      return await User.find();
+    },
   },
   Mutation: {
     signup: async (_, { nom, prenom, mail, mdp, adresse, dateNaissance }) => {
@@ -60,6 +74,34 @@ const userResolvers = {
         token,
         user,
       };
+    },
+
+    changeRole: async (_, { id, role }, { user }) => {
+      if (!user) {
+        throw new Error(
+          "Vous devez être connecté pour changer le rôle d'un utilisateur"
+        );
+      }
+      if (user.role !== "admin") {
+        throw new Error(
+          "Seul un administrateur peut changer le rôle d'un utilisateur"
+        );
+      }
+
+      if (role !== "recruteur" || role !== "candidat" || role !== "admin") {
+        throw new Error(
+          "Rôle invalide. Les rôles valides sont : 'recruteur', 'candidat', 'admin'."
+        );
+      }
+
+      const userToUpdate = await User.findById(id);
+      if (!userToUpdate) {
+        throw new Error("Utilisateur non trouvé");
+      }
+
+      userToUpdate.role = role;
+      await userToUpdate.save();
+      return userToUpdate;
     },
   },
 };

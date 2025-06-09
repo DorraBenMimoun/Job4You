@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const candidatureTypeDefs = gql`
   type Candidature {
-    id: ID!
+    _id: ID!
     candidat: User!
     offre: Offer!
     lettreMotivation: String
@@ -12,7 +12,7 @@ const candidatureTypeDefs = gql`
   }
 
   type StatutCandidature {
-    id: ID!
+    _id: ID!
     candidature: Candidature!
     statut: String!
     commentaire: String

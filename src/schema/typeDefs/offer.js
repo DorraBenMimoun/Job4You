@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const offerTypeDefs = gql`
   type Offer {
-    id: ID!
+    _id: ID!
     titre: String!
     description: String!
     localisation: String!
