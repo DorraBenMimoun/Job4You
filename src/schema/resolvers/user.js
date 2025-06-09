@@ -77,6 +77,7 @@ const userResolvers = {
     },
 
     changeRole: async (_, { id, role }, { user }) => {
+      console.log("Role to change:", role);
       if (!user) {
         throw new Error(
           "Vous devez être connecté pour changer le rôle d'un utilisateur"
@@ -85,12 +86,6 @@ const userResolvers = {
       if (user.role !== "admin") {
         throw new Error(
           "Seul un administrateur peut changer le rôle d'un utilisateur"
-        );
-      }
-
-      if (role !== "recruteur" || role !== "candidat" || role !== "admin") {
-        throw new Error(
-          "Rôle invalide. Les rôles valides sont : 'recruteur', 'candidat', 'admin'."
         );
       }
 

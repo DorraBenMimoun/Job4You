@@ -4,6 +4,10 @@
 
 Job4You est un webservice GraphQL conçu pour la gestion des candidatures et des offres d'emploi. Ce service web permet aux recruteurs de publier des offres d'emploi et aux candidats de postuler à ces offres de manière efficace et sécurisée.
 
+## Rapport
+
+📑 [Lien vers le rapport complet](https://docs.google.com/document/d/1p-cCIfuY35rLyxQhium0lKUXUKHafLrixF6V1CE2rbo/edit?usp=sharing)
+
 ## Fonctionnalités Principales
 
 - �� Authentification sécurisée avec JWT
